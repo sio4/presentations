@@ -55,55 +55,63 @@
 </head>
 <body class="">
 
+  
   <div class="flowtime">
-    <div class="ft-section" data-id="section" data-title="Auto IDs Demo">
-      <div class="ft-page" data-id="page-1">
-          <h1>Section 1 - Page 1</h1>
-          <p>Overall Page 1.</p>
-      </div>
-      <div class="ft-page" data-id="page-1">
-          <h1>Section 1 - Page 2</h1>
-          <p>Overall Page 2.</p>
-      </div>
-    </div>
-
-    <div class="ft-section" data-id="section">
-        <div class="ft-page" data-id="page-3">
-            <h1>Section 2 - Page 1</h1>
-            <p>Overall Page 3.</p>
-        </div>
-        <div class="ft-page" data-id="page 4">
-            <h1>Section 2 - Page 2</h1>
-            <p>Overall Page 4.</p>
-        </div>
-    </div>
-
-    <div class="ft-section" data-id="section">
-        <div class="ft-page" data-id="page-5">
-            <h1>Section 3 - Page 1</h1>
-            <p>Overall Page 5.</p>
-        </div>
-        <div class="ft-page" data-id="page-6">
-            <h1>Section 3 - Page 2</h1>
-            <p>Overall Page 6.</p>
-        </div>
-    </div>
-  </div>
-
-  <div class="titles">
-    <ul>
-      <li><a href="#/section/page-1">Page 1</a></li>
-      <li><a href="#/section/page-4">Page 4</a></li>
-      <li><a href="#/section/page-6">Page 6</a></li>
-    </ul>
-  </div>
+    <div class="ft-section" data-section="info">
+      <div class="ft-page one">
+        <h1>page 1 / a:</h1>
+        <img src="http://placehold.it/640x480">
+      </div><!-- end .ft-page --> 
+      
+      <div class="ft-page four">
+        <h1>page 1 / b:</h1>
+        <img src="http://placehold.it/640x480"><br>
+        <img src="http://placehold.it/640x480">
+      </div><!-- end .ft-page -->    
+      
+      <div class="ft-page">
+        <h1>page 1 / c:</h1>
+        <p></p>
+        <p></p>
+      </div><!-- end .ft-page -->    
+    </div><!-- end .ft-section -->  
+    
+    <div class="ft-section" data-section="info">
+      <div class="ft-page two">
+        <h1>page 2 / a:</h1>
+      </div><!-- end .ft-page --> 
+      
+      <div class="ft-page three">
+        <h1>page 2 / b:</h1>
+        <p></p>
+      </div><!-- end .ft-page --> 
+    </div><!-- end .ft-section -->  
+    
+    <div class="ft-section" data-section="info">
+      <div class="ft-page">
+        <h1>page 3:</h1>
+        <p></p>
+      </div><!-- end .ft-page --> 
+      
+      <div class="ft-page">
+        <h1>page 3 / b:</h1>
+        <p></p>
+      </div><!-- end .ft-page -->    
+      
+      <div class="ft-page">
+        <h1>page 3 / c:</h1>
+        <p></p>
+      </div><!-- end .ft-page -->    
+    </div><!-- end .ft-section -->  
+    
+  </div><!-- end .flowtime -->
 
   <script src="../../js/brav1toolbox.js"></script>
   <script src="../../js/flowtime.js"></script>
 
   <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-1228618-10']);
+    //_gaq.push(['_setAccount', 'UA-1228618-10']);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackEvent', 'Flowtime', 'Landing', document.title]);
     (function() {
@@ -117,21 +125,17 @@
     // Flowtime.fragmentsOnSide(true);
     // Flowtime.fragmentsOnBack(true);
     // Flowtime.useHistory(false);
-    // Flowtime.slideInPx(true);
+    Flowtime.slideInPx(true);
     // Flowtime.sectionsSlideToTop(true);
     // Flowtime.gridNavigation(false);
     // Flowtime.useOverviewVariant(true);
     // Flowtime.parallaxInPx(true);
     // Flowtime.clicker(true);
     // Flowtime.loop(true);
+    Flowtime.scrollTheSection(true);
+    Flowtime.disableNavigation(false, false, true, false);
     //
     //
-
-    Flowtime.addEventListener("flowtimenavigation", onNavigation, false);
-
-    function onNavigation(e)
-    {
-    }
 
     // starts the application with configuration options
     Flowtime.start();

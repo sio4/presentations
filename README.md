@@ -1,6 +1,6 @@
 ![Flowtime.js](https://github.com/marcolago/flowtime.js/raw/master/assets/img/logo-black.png "Flowtime.js Logo")
 
-### Flowtime.js is a framework for easily build HTML presentations or websites.
+### Flowtime.js is a framework for easily building HTML presentations or websites.
 
 You can take a look at the [sample presentation](http://marcolago.github.io/flowtime.js/) to quick learn about the possibilities:
 
@@ -8,6 +8,17 @@ You can take a look at the [sample presentation](http://marcolago.github.io/flow
 - [Browser Support](https://github.com/marcolago/flowtime.js/wiki/Browser-Support)
 - [Made with Flowtime.js](https://github.com/marcolago/flowtime.js/wiki/Made-With-Flowtime.js)
 - [Credits and Thanks](https://github.com/marcolago/flowtime.js/wiki/Credits-and-Thanks)
+
+### If You Find Flowtime.js Useful
+
+If you used Flowtime.js to build a website, a webapp or a presentation, consider to do one or more of these things.
+
+ - Spread the word.  
+ - Let me know where I can see your project (and tell me if I can add to the [Made with Flowtime.js](https://github.com/marcolago/flowtime.js/wiki/Made-With-Flowtime.js) page). 
+ - [Open an issue](https://github.com/marcolago/flowtime.js/issues) to report a bug or to request a feature.
+ - If you wish to donate:  
+[![paypal](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9TW923Y3US7LG)
+
 
 ## Build presentations online with Flowtime.js and SlideCaptain
 
@@ -718,11 +729,7 @@ Every animation in Flowtime.js is managed with native CSS3 transitions so if you
 ```css
   .ft-fragment {
     opacity: 0;
-         -o-transition: all 0.3s cubic-bezier(.77, .10, .22, 1);
-        -ms-transition: all 0.3s cubic-bezier(.77, .10, .22, 1);
-       -moz-transition: all 0.3s cubic-bezier(.77, .10, .22, 1);
-    -webkit-transition: all 0.3s cubic-bezier(.77, .10, .22, 1);
-            transition: all 0.3s cubic-bezier(.77, .10, .22, 1);
+    transition: all 0.3s cubic-bezier(.77, .10, .22, 1);
   }
 
   .ft-fragment.revealed, .ft-fragment.revealed-temp {
@@ -743,20 +750,14 @@ To customize the way the thumbnails in overview mode look when idle, hovered and
   /* default progress page thumb */
 
   .ft-page-thumb {
-       -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     width: 1rem;
     height: 0.7rem;
     margin-right: 1px;
     margin-bottom: 1px;
     background-color: rgba(0,0,0,0.7);
     cursor: pointer;
-         -o-transition: background-color 0.5s;
-        -ms-transition: background-color 0.5s;
-       -moz-transition: background-color 0.5s;
-    -webkit-transition: background-color 0.5s;
-            transition: background-color 0.5s;
+    transition: background-color 0.5s;
   }
 
   .ft-page-thumb:hover {
