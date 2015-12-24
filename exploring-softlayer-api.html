@@ -1,0 +1,710 @@
+<!DOCTYPE HTML>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US" class="ie ie6 lt-ie9">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US" class="ie ie7 lt-ie9">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US" class="ie ie8 lt-ie9">
+<![endif]-->
+<!--[if gte IE 9]>
+<html lang="en-US" class="ie ie9">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en-US" class="">
+<!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0 minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="sio4">
+
+  <meta property="og:title" content="Exploring SoftLayer API">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://www.sauru.so/presentations/exploring-softlayer-api.html">
+  <meta property="og:image" content="http://www.sauru.co/presentations/images/exploring-softlayer-api/hardened-layer-architecture.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://www.sauru.so/presentations/exploring-softlayer-api.html">
+  <meta name="twitter:title" content="Exploring SoftLayer API">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://www.sauru.co/presentations/images/exploring-softlayer-api/hardened-layer-architecture.png">
+  <meta name="twitter:creator" content="@scinix">
+
+  <meta name="description" content="">
+
+  <title>Exploring SoftLayer API</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="css/flowtime.css">
+  <link rel="stylesheet" href="css/themes/default.css">
+  <link rel="stylesheet" href="assets/css/prism.css">
+</head>
+<body class="">
+
+  <div class="flowtime">
+    <div class="ft-section" data-id="section-1">
+      <div id="/section-1/page-1" class="ft-page" data-id="page-1" data-title="Exploring SoftLayer API by @scinix">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <img src="images/exploring-softlayer-api/softlayer.png" width="300">
+            <h1>API 뒤지기: 뭐라도 건져볼까...</h1>
+            <h4>sio4@sk.com</h4>
+          </div>
+        </div>
+      </div>
+      <div id="/section-1/page-2" class="ft-page" data-id="page-2">
+        <h1>왜?</h1>
+        <p><cite><strong>무료한</strong> 교육 시간을 달래기 위하여...</cite></p>
+        <ul>
+          <li class="ft-fragment">API가 정말 <strong>잘 동작하는 거야?</strong></li>
+          <li class="ft-fragment"><strong>"Value Added"</strong> 적용 포인트를 찾아라!</li>
+          <li class="ft-fragment">우리의 <strong>Portal</strong>은 어떻게 만들어야 할까?</li>
+        </ul>
+      </div>
+      <div id="/section-1/page-3" class="ft-page" data-id="page-3">
+        <h1>API가 정말 잘 동작하는 거야?</h1>
+        <ul>
+          <li class="ft-fragment step">어떤 <strong>언어</strong>나 <strong>방식</strong>이 지원되는가?</li>
+          <li class="ft-fragment step">각각의 언어는 정말 <strong>잘</strong> 지원되고 있는가?</li>
+          <li class="ft-fragment"><strong>그래서</strong>, <span class="ft-fragment"><strong class="attention">어떤 것을 선택해야 하는가?</strong></span></li>
+        </ul>
+      </div>
+      <div id="/section-1/page-4" class="ft-page" data-id="page-4">
+        <h1>"Value Added" 적용 포인트를 찾아라!</h1>
+        <ul>
+          <li class="ft-fragment step">SoftLayer에서 <strong>가려운 부분</strong>은?</li>
+          <li class="ft-fragment step">확장 서비스를 붙일 수 있는 <strong>접합점</strong>이 있을까?</li>
+          <li class="ft-fragment step"><strong>자동화</strong>할 수 있는 부분은 어디? 어느 수준?</li>
+        </ul>
+      </div>
+      <div id="/section-1/page-5" class="ft-page" data-id="page-5">
+        <h1>우리의 Portal은 어떻게 만들어야 할까?</h1>
+        <ul>
+          <li class="ft-fragment step">Management Console의 성격</li>
+          <li class="ft-fragment step">왜! SoftLayer Portal은 <strong>느린가?</strong></li>
+          <li class="ft-fragment step"><strike>현대적</strike> 근대적 Web Application</li>
+          <li class="ft-fragment"><strong>그래서</strong>, <span class="ft-fragment"><strong class="attention">어떻게 만들어야 하는가?</strong></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-2">
+      <div id="/section-2/page-1" class="ft-page" data-id="page-1">
+        <h1>API가 정말 잘 동작하는 거야?</h1>
+        <ul>
+          <li>어떤 언어나 방식이 지원되는가?</li>
+          <li>각각의 언어는 정말 잘 지원되고 있는가?</li>
+          <li>그래서, <strong>어떤 것을 선택해야 하는가?</strong></li>
+        </ul>
+      </div>
+      <div id="/section-2/page-2" class="ft-page" data-id="page-2">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>API가 정말 잘 동작하는 거야?</h5>
+            <h1><strong>그래서, 어떤 것을 선택해야 하는가?</strong></h1>
+            <div class="stacked-center">
+              <ol>
+                <li class="ft-fragment step">Main Stream!</li>
+                <li class="ft-fragment step">Main Stream!</li>
+                <li class="ft-fragment step">뭘 하려고 하는가?</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-3">
+      <div id="/section-3/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>API가 정말 잘 동작하는 거야?</h5>
+            <h1><strong>어떤 언어나 방식이 지원되는가?</strong></h1>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-2" class="ft-page" data-id="page-2">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>지원하는 개발 언어</h1>
+            <ul class="stacked-center">
+              <li>Perl</li>
+              <li>PHP</li>
+              <li>Python</li>
+              <li>Ruby</li>
+              <li>.Net</li>
+              <li>Java</li>
+            </ul>
+          </div>
+        </div>
+        <img src="images/exploring-softlayer-api/c-3pr.png"
+        width="30%" class="ft-fragment">
+      </div>
+      <div id="/section-3/page-3" class="ft-page" data-id="page-3">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>지원하는 API/Protocol</h1>
+            <p><cite>"Under the Hood, Behind the Scene"</cite></p>
+            <ul class="stacked-center">
+              <li>XML-RPC</li>
+              <li>SOAP</li>
+              <li>REST</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-4" class="ft-page" data-id="page-4">
+        <div class="stack-center">
+          <img src="images/exploring-softlayer-api/api-structure.png"
+          class="stacked-center">
+        </div>
+      </div>
+      <div id="/section-3/page-5" class="ft-page" data-id="page-5">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>Garbage First!</h1>
+            <ul>
+              <li><strong>Perl</strong>: SOAP, 버전 없고 3년 전 개발 중단</li>
+              <li><strong>PHP</strong>: SOAP/XML-RPC, v1.01, 최종 수정 2개월 전</li>
+              <li><strong>.NET</strong>: REST, 버전 없고 5년 전 개발 중단</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-6" class="ft-page" data-id="page-6/">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>Java: <cite>Unofficially Official</cite></h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment step"><cite>"Java, 공식 사이트의 지원 목록에 없어!"</cite></li>
+              <li class="ft-fragment step">Forum 게시물을 보면, 공식 지원이라고...</li>
+              <li class="ft-fragment step">2015년에 개발 시작?</li>
+              <li class="ft-fragment step">Version 0.2.2</li>
+              <li class="ft-fragment step">기계적으로 생산된 REST API Wrapper Class</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-7" class="ft-page" data-id="page-7">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1><strong>P</strong>ython: <cite>The <strong>P</strong>ioneer!</cite></h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment step">Version 4.1.1</li>
+              <li class="ft-fragment step">32 commiters / 1,665 commits / Dec 15</li>
+              <li class="ft-fragment step">XML-RPC Wrapper 형태, REST 전환 흔적</li>
+              <li class="ft-fragment step"><strong>Web보다는 CLI를 Target으로 시작된 듯</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-8" class="ft-page" data-id="page-8">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1><strong>Q</strong>uezy: <cite>the <strong>Q</strong>ueue</cite></h1>
+            <img src="images/exploring-softlayer-api/suji.jpg" width="150%">
+            <p><cite>"...P to the <strong>Q</strong> to the R to the Ess..."</cite></p>
+            <p class="ft-fragment">P/R 사이의 허전함과 PT의 팍팍함 사이...</p>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-9" class="ft-page" data-id="page-9">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1><strong>R</strong>uby: <cite>the <strong>R</strong>ookie</cite></h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment step">Version 3.1.1</li>
+              <li class="ft-fragment step">11 commiters / 404 commits / Nov 19</li>
+              <li class="ft-fragment step">XML-RPC Wrapper 형태</li>
+              <li class="ft-fragment step"><strong>Ember와의 연동을 고려하고 있는 흔적이 있음</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-10" class="ft-page" data-id="page-10">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1><strong>!!!</strong> Github Trend - Samples</h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment"><strong>stratos</strong> Ruby on Rails 기반의 White-label Portal</li>
+              <ul class="ft-fragment step">
+                <li>rails 4.2, fog, devise, sidekiq,...</li>
+                <li>그런데 틀만! 구현체가 없다!</li>
+                <li>2010년에 PHP 기반으로 발표되었던...</li>
+              </ul>
+              <li class="ft-fragment"><strong>slick</strong> Python 기반 Sample Implementation</li>
+              <ul class="ft-fragment step">
+                <li>Deploy 되어있는 다른 Site에서 확인</li>
+                <li>최소 기능. Flask, jQuery, dataTable,...</li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-11" class="ft-page" data-id="page-11">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1><strong>!!!</strong> Github Trend - Integrations</h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment step"><strong>Knife</strong> Chef를 이용한 VM Instance 띄우기</li>
+              <li class="ft-fragment step"><strong>Jumpgate</strong> OpenStack-to-SL(Other Cloud) API Gateway</li>
+              <li class="ft-fragment step"><strong>sl-ember-*</strong> Ember.js 지원을 위한 다양한 SoftLayer 모듈</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-3/page-12" class="ft-page" data-id="page-12">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>정리</h1>
+            <p class="ft-fragment step">현재 개발의 중심은 <strong>Python</strong></p>
+            <p class="ft-fragment step">새로운 Trend는 <strong>Ember.js + RoR</strong>?</p>
+            <p class="ft-fragment step">그리고 OpenStack 등과의 <strong>Inter-Cloud 추구</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-4">
+      <div id="/section-4/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>API가 정말 잘 동작하는 거야?</h5>
+            <h1><strong>각각의 언어는 정말 잘 지원되고 있는가?</strong></h1>
+          </div>
+        </div>
+      </div>
+      <div id="/section-4/page-2" class="ft-page" data-id="page-2">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1><strong>REST</strong>: Backend API</h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment step">구리구리</li>
+              <li class="ft-fragment"><strike>REST</strike> REST 향 첨가</li>
+              <ul class="ft-fragment step">
+                <li>Stateless? <strong class="attention">No, HTTP Session</strong></li>
+                <li>Cacheable? No, <strong class="attention">No-Cache</strong></li>
+                <li>Uniform Interface? <strong class="attention">No, RPC-Style</strong></li>
+              </ul>
+              <ul class="ft-fragment step">
+                <li>API_KEY? <strong class="attention">No, Basic Auth Password</strong></li>
+                <li>CORS(and Preflight)? <strong class="attention">NOT SUPPORTED</strong></li>
+                <li>...</li>
+              </ul>
+              <li class="ft-fragment step">단순 XML-RPC Wrapper</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-4/page-3" class="ft-page" data-id="page-3">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>Ruby</h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment">못다핀 보석 한덩이</li>
+              <ul class="ft-fragment step">
+                <li>일부는 Class 없이 Hash만 제공되기도...</li>
+                <li>Instance.Attributes ≠ Hash[:Attributes]</li>
+                <li>Method 호출의 일관성 부족</li>
+              </ul>
+              <li class="ft-fragment">Ruby 구현 수준 자체는 미완성 상태</li>
+            </ul>
+            <h3 class="ft-fragment step"><strong>그러나, MSA 형태의 고속 Portal 개발에는 효율적일 것!</strong></h3>
+          </div>
+        </div>
+      </div>
+      <div id="/section-4/page-4" class="ft-page" data-id="page-4">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>Python...</h1>
+            <ul class="stacked-center">
+              <li class="ft-fragment">가장 활발한 개발 진행중</li>
+              <li class="ft-fragment">아직까지는 문서로만 확인함</li>
+              <li class="ft-fragment">API 문서 상태 양호</li>
+            </ul>
+            <h3 class="ft-fragment step"><strong>당장 쉽게 접근할 수 있는 방향!</strong></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-5">
+      <div id="/section-5/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>API가 정말 잘 동작하는 거야?</h5>
+            <h1><strong>그래서, 어떤 것을 선택해야 하는가?</strong></h1>
+            <div class="stacked-center">
+              <ol>
+                <li class="ft-fragment">Main Stream! <span class="ft-fragment">- <strong>Python</strong> the Pioneer</span></li>
+                <li class="ft-fragment">Main Stream! <span class="ft-fragment">- <strong>Ruby</strong> the Rookie</span></li>
+                <li class="ft-fragment">뭘 하려고 하는가? <span class="ft-fragment">- 이제부터 할 얘기</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="ft-section" data-id="section-7">
+      <div id="/section-7/page-0" class="ft-page" data-id="page-0">
+        <h1>"Value Added" 적용 포인트를 찾아라!</h1>
+        <ul>
+          <li>SoftLayer에서 가려운 부분은?</li>
+          <li>확장 서비스를 붙일 수 있는 접합점이 있을까?</li>
+          <li>자동화할 수 있는 부분은 어디? 어느 수준?</li>
+        </ul>
+      </div>
+      <div id="/section-7/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>"Value Added" 적용 포인트를 찾아라!</h5>
+            <h1><strong>SoftLayer에서 가려운 부분은?</strong></h1>
+            <div class="stacked-center">
+              <ul>
+                <li class="ft-fragment">느려!</li>
+                <ul class="ft-fragment step"><li>답답한 거 좋아?</li></ul>
+                <li class="ft-fragment">복잡해!</li>
+                <ul class="ft-fragment step"><li>Cloud 왜 써? 이거 싫어서 쓰는 거야!</li></ul>
+                <li class="ft-fragment">부족해!</li>
+                <ul class="ft-fragment step"><li>뭔가 딱! 들어오지 않아...</li></ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-8">
+      <div id="/section-8/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>"Value Added" 적용 포인트를 찾아라!</h5>
+            <h1><strong>확장 서비스? 접합점?</strong></h1>
+          </div>
+        </div>
+      </div>
+      <div id="/section-8/page-2" class="ft-page" data-id="page-2">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>전반적으로...</h1>
+            <p>우리에게 필요한 것</p>
+            <ul>
+              <li class="ft-fragment step">SoftLayer 종속이 아닌 우리 것으로 차별화</li>
+              <li class="ft-fragment step">제휴/확장을 위한 웹기반 연동 구조</li>
+              <li class="ft-fragment"><strong>연동체계를 고려한 API Set!</strong></li>
+              <li class="ft-fragment step">이런 REST 가지고... 웹 연동?</li>
+            </ul>
+          </div>
+          <div class="stack-center ft-fragment">
+            <img class="stacked-center" width="95%"
+            src="images/exploring-softlayer-api/1988.png">
+            <h2 class="stack-center">
+              <br/>
+              ... 될 <strong>턱!</strong>이 있나!</h2>
+          </div>
+        </div>
+      </div>
+      <div id="/section-8/page-3" class="ft-page" data-id="page-3">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>가려운 곳...</h1>
+            <ul>
+              <li class="ft-fragment step">빠르고 단순한 Management Console</li>
+              <li class="ft-fragment step">효율적인 <strong>네트워크 관리</strong> 환경</li>
+              <li class="ft-fragment step"><strong>한 눈에 좀 봅시다!</strong></li>
+              <li class="ft-fragment step">비용(리소스)의 현재와 추이 분석</li>
+              <li class="ft-fragment">원가분석 <span class="ft-fragment">▶ 간단 VM, 간편 계산</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-9">
+      <div id="/section-9/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>"Value Added" 적용 포인트를 찾아라!</h5>
+            <h1><strong>자동화할 수 있는 부분? 어느 수준?</strong></h1>
+            <h2>아직...</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-10">
+      <div id="/section-10/page-0" class="ft-page" data-id="page-0">
+        <h1>우리의 Portal은 어떻게 만들어야 할까?</h1>
+        <ul>
+          <li>Management Console의 성격</li>
+          <li>왜! SoftLayer Portal은 느린가?</li>
+          <li><strike>현대적</strike> 근대적 Web Application</li>
+          <li>그래서, <strong>어떻게 만들어야 하는가?</strong></li>
+        </ul>
+      </div>
+      <div id="/section-10/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>Management Console의 성격</strong></h1>
+            <ul>
+              <li class="ft-fragment step">데이터 열람 중심</li>
+              <ul>
+                <li class="ft-fragment step">구성정보 및 통계 데이터 <span class="">▶ 정적, 대용량 데이터</span></li>
+                <li class="ft-fragment step">상태정보 <span class="">▶ 실시간, 저용량 데이터</span></li>
+              </ul>
+              <li class="ft-fragment step">명령과 응답 <span class="">▶ 실시간</span></li>
+              <li class="ft-fragment step">보고, 보고, 보고, 보고,... 실행</li>
+            </ul>
+            <h3 class="ft-fragment step"><strong>무엇보다도, "Page"가 아닌 "Application" 임</strong></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-11">
+      <div id="/section-11/page-2" class="ft-page" data-id="page-2">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>왜! SoftLayer Portal은 느린가?</strong> 1/3</h1>
+            <ul>
+              <li class="ft-fragment">뭐랄까... <span class="ft-fragment">Page임</span></li>
+              <ul>
+                <li class="ft-fragment step">장비목록, 상세정보 <span class="">▶ 매번 전체 데이터 재전송</span></li>
+                <li class="ft-fragment step">XHR 항목: notifications, tickets, events, payments, tags, devices</li>
+                <li class="ft-fragment step">실시간 상태정보 <span class="">▶ 실시간으로 XHR Update</span></li>
+              </ul>
+              <li class="ft-fragment">Order/Provisioning <span class="">▶ 매번 Case 정보 전송</span></li>
+              <li class="ft-fragment">읽고, 읽고, 읽고, 읽고,...</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="/section-11/page-3" class="ft-page" data-id="page-3">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>왜! SoftLayer Portal은 느린가?</strong> 2/3</h1>
+            <p>그래, 얼마나 읽는데?</p>
+            <div class="stacked-center">
+              <ul>
+                <li class="ft-fragment step">장비 목록: 148KB</li>
+                <ul>
+                  <li class="ft-fragment step">12~15초</li>
+                  <li class="ft-fragment step">최장 단일 Request: 2~5초</li>
+                  <li class="ft-fragment step">약 100 개의 Request</li>
+                </ul>
+                <li class="ft-fragment step">장비 상세: 175KB</li>
+                <li class="ft-fragment">다시 목록: <span class="ft-fragment"><strong>다시 145KB</strong></span></li>
+                <li class="ft-fragment">...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="/section-11/page-4" class="ft-page" data-id="page-4">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>왜! SoftLayer Portal은 느린가?</strong> 3/3</h1>
+            <p>Request 와 Response 유형</p>
+          </div>
+        </div>
+        <div class="ft-fragment stack-center shy">
+          <div class="stacked-center" style="width: 100%">
+            <h2>Device List</h2>
+            <img class="stacked-center" width="95%"
+            src="images/exploring-softlayer-api/sl-control-001.png">
+            <p>"devices"를 Key로 하여 Array 전송</p>
+          </div>
+        </div>
+        <div class="ft-fragment stack-center shy">
+          <div class="stacked-center" style="width: 100%">
+            <h2>Device Details</h2>
+            <img class="stacked-center" width="95%"
+            src="images/exploring-softlayer-api/sl-control-003.png">
+            <p>"result"를 Key로 하여 Object 전송</p>
+          </div>
+        </div>
+        <div class="ft-fragment stack-center shy">
+          <div class="stacked-center" style="width: 100%">
+            <h2>Network Bandwidth Usage</h2>
+            <img class="stacked-center" width="95%"
+            src="images/exploring-softlayer-api/sl-control-002.png">
+            <p>왜 READ에 POST를?</p>
+          </div>
+        </div>
+        <div class="ft-fragment stack-center shy">
+          <div class="stacked-center" style="width: 100%">
+            <h2>Response Header (Device List)</h2>
+            <img class="stacked-center" width="95%"
+            src="images/exploring-softlayer-api/sl-control-004.png">
+            <p>강제적 Cache 금지</p>
+          </div>
+        </div>
+      </div>
+      <div id="/section-11/page-5" class="ft-page" data-id="page-5">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>왜! SoftLayer Portal은 느린가?</strong> 참고</h1>
+            <p>JSON 응답이 왜 달라?</p>
+          </div>
+        </div>
+        <div class="ft-fragment stack-center shy">
+          <div class="stacked-center" style="width: 100%">
+            <h2>JSON from Control XHR</h2>
+            <img class="stacked-center" width="70%"
+            src="images/exploring-softlayer-api/sl-json-guest--control.png">
+            <p>Embedded 방식으로 연관정보 전송</p>
+          </div>
+        </div>
+        <div class="ft-fragment stack-center shy">
+          <div class="stacked-center" style="width: 100%">
+            <h2>JSON from REST API</h2>
+            <img class="stacked-center" width="70%"
+            src="images/exploring-softlayer-api/sl-json-guests--rest.png">
+            <p>제한된 정보만 1차원으로 전송</p>
+          </div>
+        </div>
+      </div>
+      <div id="/section-11/page-6" class="ft-page" data-id="page-6">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>왜! SoftLayer Portal은 느린가?</strong></h1>
+            <h2>그래서 뭐?</h2>
+            <h3 class="ft-fragment">Page라서, <strong>"반응이"</strong> 느리다</h3>
+            <h3 class="ft-fragment">그 이전에, 애당초 API Response가 느리다</h3>
+            <h3 class="ft-fragment">그 느린 걸 부르고 또 부른다</h3>
+            <h3 class="ft-fragment"><strong>바뀌지도 않는데...</strong></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-12">
+      <div id="/section-12/page-7" class="ft-page" data-id="page-7">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong><strike>현대적</strike> 근대적 Web Application</strong> 1/2</h1>
+            <p>Web Application을 위한 근래의 Design 경향</p>
+            <div class="stacked-center">
+              <ul>
+                <li class="ft-fragment step">RIA: Rich Internet Application</li>
+                <li class="ft-fragment step">Micro Service Architecture</li>
+                <li class="ft-fragment step">Client/Javascript MVC</li>
+                <li class="ft-fragment step">Backend as a Service: Data-Centric</li>
+                <li class="ft-fragment step">API-first! Design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="/section-12/page-8" class="ft-page" data-id="page-8">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong><strike>현대적</strike> 근대적 Web Application</strong> 2/2</h1>
+            <p>효율적인 Web Application 개발을 위한 기반 기술</p>
+            <div class="stacked-center">
+              <ul>
+                <li class="ft-fragment step">JSON API</li>
+                <li class="ft-fragment step">Side Loading</li>
+                <li class="ft-fragment step">Local Storage (Browser)</li>
+                <li class="ft-fragment step">Web Socket</li>
+                <li class="ft-fragment step">HTTP/2.0, SPDY</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-13">
+      <div id="/section-13/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>그래서, 어떻게 만들어야 하는가?</strong></h1>
+          </div>
+        </div>
+      </div>
+      <div id="/section-13/page-2" class="ft-page" data-id="page-2">
+        <div class="stack-center">
+          <img class="stacked-center"
+          src="images/exploring-softlayer-api/hardened-layer-architecture.png">
+        </div>
+      </div>
+      <div id="/section-13/page-3" class="ft-page" data-id="page-3">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h5>우리의 Portal은 어떻게 만들어야 할까?</h5>
+            <h1><strong>그래서, 어떻게 만들어야 하는가?</strong></h1>
+            <h3 class="ft-fragment">잘...</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-section" data-id="section-99">
+      <div id="/section-99/page-1" class="ft-page" data-id="page-1">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>Thank You</h1>
+            <h3>Have Fun<strong>g!</strong></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/brav1toolbox.js"></script>
+  <script src="js/flowtime.js"></script>
+  <script src="assets/js/prism.js"></script>
+
+  <script type="text/javascript">
+    var cacheTitle = document.title.replace("Flowtime.js | ", "");
+
+    // Configuration API test
+    Flowtime.showProgress(true);
+    // Flowtime.fragmentsOnSide(true);
+    // Flowtime.fragmentsOnBack(true);
+    // Flowtime.useHistory(false);
+    // Flowtime.slideInPx(true);
+    // Flowtime.sectionsSlideToTop(true);
+    // Flowtime.backFromPageToTop(true);
+    // Flowtime.gridNavigation(false);
+    // Flowtime.useOverviewVariant(true);
+    Flowtime.parallaxInPx(true);
+    //
+    // event management
+    // Flowtime.addEventListener("flowtimenavigation", onNavigation, false);
+    Flowtime.onNavigation(onNavigation);
+    function onNavigation(e)
+    {
+      // console.log(cacheTitle + ' > ' + document.title.replace("Flowtime.js | ", ""));
+      cacheTitle = document.title.replace("Flowtime.js | ", "");
+      //console.log('section', e.section, 'sectionIndex', e.sectionIndex);
+      //console.log('page', e.page, 'pageIndex', e.);
+      //console.log('pastSectionIndex', e.pastSectionIndex, 'pastPageIndex', e.pastPageIndex);
+      //console.log('prevSection', e.prevSection);
+      //console.log('nextSection', e.nextSection);
+      //console.log('prevPage', e.prevPage);
+      //console.log('nextPage', e.nextPage);
+      //console.log('fragment', e.fragment, + 'fragmentIndex', e.fragmentIndex);
+      //console.log("isOverview", e.isOverview);
+      //console.log('progress:', e.progress, 'total:', e.total);
+      // var value = Math.round(e.progress * 100 / e.total);
+      // console.log('Completion: ' + value + '%');
+    }
+    // starts the application with configuration options
+    Flowtime.start();
+  </script>
+  <!--script type="text/javascript" src="http://slidemote.jit.su/slidemote.js#flowtime"></script-->
+</body>
+</html>
