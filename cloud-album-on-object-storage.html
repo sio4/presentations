@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US" class="ie ie6 lt-ie9">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US" class="ie ie7 lt-ie9">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US" class="ie ie8 lt-ie9">
+<![endif]-->
+<!--[if gte IE 9]>
+<html lang="en-US" class="ie ie9">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en-US" class="">
+<!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0 minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="sio4">
+
+  <meta property="og:title" content="Cloud Album on Object Storage">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://www.sauru.so/presentations/cloud-album-on-object-storage.html">
+  <meta property="og:image" content="http://www.sauru.co/presentations/images/cloud-album-on-object-storage/hardened-layer-architecture.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://www.sauru.so/presentations/cloud-album-on-object-storage.html">
+  <meta name="twitter:title" content="Cloud Album on Object Storage">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://www.sauru.co/presentations/images/cloud-album-on-object-storage/hardened-layer-architecture.png">
+  <meta name="twitter:creator" content="@scinix">
+
+  <meta name="description" content="">
+
+  <title>Cloud Album on Object Storage</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="css/flowtime.css">
+  <link rel="stylesheet" href="css/themes/default.css">
+  <link rel="stylesheet" href="assets/css/prism.css">
+  <link rel="stylesheet" href="cloud-album-on-object-storage/override.css">
+</head>
+<body class="">
+
+<div class="flowtime">
+	<div class="ft-section" data-id="section-0" id="sec0">
+		<div id="/section-0/page-1" class="ft-page bg cs" data-id="page-1" data-title="Cloud Album on Object Storage by @scinix" id="cover">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1><strong>Cloud Album on Object Storage</strong></h1>
+					<h3>클라우드를 활용해서 Application 개발하기</h3>
+				</div>
+			</div>
+		</div>
+		<div id="/section-0/page-2" class="ft-page" data-id="page-2">
+			<p><cite>오늘의 이야기...</cite></p>
+			<ul>
+				<li class="ft-frag"><strong>Cloud</strong> 이야기</li>
+				<li class="ft-frag">잡것 <strong>as a Service</strong></li>
+				<li class="ft-frag"><strong>Object Storage</strong>, 무엇에 쓰는 물건인고?</li>
+				<li class="ft-frag"><strong>All Together Now</strong>: CAOS 이야기</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="ft-section" data-id="section-1">
+		<div id="/section-1/page-1" class="ft-page" data-id="page-1" id="c-story">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1><strong>Cloud</strong> 이야기</h1>
+				</div>
+			</div>
+		</div>
+		<div id="/section-1/page-2" class="ft-page" data-id="page-2" id="c-is">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>Cloud는...</h1>
+					<ul>
+						<li class="ft-fragment"><strong>D</strong>istant
+							<span class="ft-fragment step">- 내 옆에 있지 않<cite>고</cite></span>
+						</li>
+						<li class="ft-fragment"><strong>I</strong>nstant
+							<span class="ft-fragment step">- 쓰<cite>고</cite> 버리는 종이컵</span>
+						</li>
+						<li class="ft-fragment"><strong>F</strong>ragile
+							<span class="ft-fragment step">- 종이컵이라<cite>고</cite></span>
+						</li>
+						<li class="ft-fragment"><strong>F</strong>orget
+							<span class="ft-fragment step">- 쓰는 것만 신경쓰<cite>고</cite></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="/section-1/page-3" class="ft-page" data-id="page-3" id="c-is-diff">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>Cloud는 <strong>DIFF</strong>...</h1>
+					<ul>
+						<li class="ft-fragment center step">DIFF<strong>ICULT</strong></li>
+						<li class="ft-fragment center step">DIFF<strong>ERENT</strong></li>
+					</ul>
+					<ul class="ft-fragment">
+						<li><cite><strong>변화</strong>는...</cite></li>
+						<li><cite>...언제나 어렵고 낯설다!</cite></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="/section-1/page-4" class="ft-page" data-id="page-4">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1><strong>변화</strong>의 바람<span class="ft-fragment">, 접근의 <strong>변화!</strong></span></h1>
+					<ul class="ft-fragment step">
+						<li class="ft-frag step center"><cite>System Engineering, Software Engineering,...</cite></li>
+						<li class="ft-frag step center">세부 기술적 접근의 변화</li>
+						<li class="ft-frag step center">서비스 아키텍쳐의 변화</li>
+					</ul>
+					<h3 class="ft-fragment">[Site|Service] <strong>Reliability Engineering</strong>: 시각의 변화</h3>
+				</div>
+			</div>
+		</div>
+		<div id="/section-1/page-5" class="ft-page bg im1" data-id="page-5">
+			<h3 class="back">IRONMAN에게 안겨 난다면...
+				<strong>눈을 뜨고 볼 수가 없어</strong></h3>
+			<p class="ft-fragment">변화에 끌려갈 것인가?</p>
+		</div>
+		<div id="/section-1/page-6" class="ft-page bg im2" data-id="page-6">
+			<h3 class="back">IRONMAN을 입으면...
+				<strong>자비스 안녕?</strong> 신세계!</h3>
+			<p class="ft-fragment">변화를 이끌 것인가!</p>
+		</div>
+	</div>
+
+	<div class="ft-section" data-id="section-2">
+		<div id="/section-2/page-1" class="ft-page" data-id="page-1">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>잡것 <strong>as a Service</strong></h1>
+					<h2 class="ft-fragment step"><cite>Cloud 생태계, Cloud Out Sourcing</cite></h2>
+					<h2 class="ft-fragment">"as a Service" = "<strong>잊고, 써라</strong>"</h2>
+				</div>
+			</div>
+		</div>
+		<div id="/section-2/page-2" class="ft-page" data-id="page-2">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>무엇을 도와드릴까요?</h1>
+					<ul>
+						<li class="ft-fragment step"><cite>나에게 특화된 Biz. Logic은 내가 짤게요.</cite></li>
+						<li class="ft-fragment">메일 발송과 같은 기계적인 <strong>단순 기능</strong></li>
+						<li class="ft-fragment">Log 저장/분석 같은 부수적 <strong>공통 기능</strong></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="/section-2/page-3" class="ft-page" data-id="page-3">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1><strong>with a Little Help from My Friend!</strong></h1>
+					<h2>공용화 가능한 기능을 "as a Service"로 제공</h2>
+					<ul class="ft-fragment stacked-center">
+						<li class="ft-frag">Social Coding: <strong>Github</strong>, <strong class="ft-frag">Bitbucket</strong></li>
+						<li class="ft-frag">Mailer: <strong>Mailgun</strong></li>
+						<li class="ft-frag">Monitoring: <strong>New Relic</strong></li>
+						<li class="ft-frag">Logging: <strong>logentries</strong>, <strong class="ft-frag">papertrail</strong></li>
+						<li class="ft-frag">Messanger: <strong>Slack</strong>, <strong>PagerDuty</strong></li>
+					</ul>
+					<h4 class="ft-fragment">작은 일들을, 우직하게 해내는 수많은 친구들...</h4>
+				</div>
+			</div>
+		</div>
+		<div id="/section-2/page-4" class="ft-page bg band" data-id="page-4">
+		</div>
+		<div id="/section-2/page-5" class="ft-page bg kiss" data-id="page-5">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1><strong>KISS</strong><span class="ft-fragment">, Keep It Simple and Stupid!</span></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ft-section" data-id="section-3">
+		<div id="/section-3/page-1" class="ft-page" data-id="page-1">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1><strong>Object Storage</strong></h1>
+					<h2>무엇에 쓰는 물건인고?</h2>
+				</div>
+			</div>
+		</div>
+		<div id="/section-3/page-2" class="ft-page" data-id="page-2">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>등장</h1>
+					<ul>
+						<li class="ft-fragment">S3: Simple Storage Service (Amazon)</li>
+						<li class="ft-fragment">Swift: Open Source Object Storage</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="/section-3/page-3" class="ft-page" data-id="page-3">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>무엇에...?</h1>
+					<ul class="ft-fragment step">
+						<li class="center">Volume으로 잡는 Block 이런 거 아니고...</li>
+						<li class="center">원격 Mount 하는 NFS 이런 거 아니고...</li>
+					</ul>
+					<ul class="ft-fragment">
+						<li class="center"><strong>개별 파일(Object)을 API/URL로 접근</strong>하는 스토리지</li>
+						<li class="center"><strong>쉬운 접근, 쉬운 공유</strong>를 제공하는 스토리지</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="/section-3/page-4" class="ft-page" data-id="page-4">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>Object Storage</h1>
+					<h2><strong>정적 파일을 저장,공유하는 새로운 방식</strong></h2>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="ft-section" data-id="section-4">
+		<div id="/section-4/page-1" class="ft-page bg cm" data-id="page-1">
+			<h1><strong>All Together Now</strong>: CAOS 이야기</h1>
+			<div class="stack-center ft-fragment">
+				<div class="stacked-center back">
+					<h2>CAOS, Cloud Album on Object Storage</h2>
+					<h3><cite>CM 가서 찍은 사진을 공유하려고...</cite></h3>
+				</div>
+			</div>
+		</div>
+		<div id="/section-4/page-2" class="ft-page" data-id="page-2">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>CAOS, Cloud Album on Object Storage</h1>
+					<ul class="stacked-center ft-fragment">
+						<li class="">개발: <strong>Ruby on Rails</strong>, Bootstrap, <strong>Github</strong></li>
+						<li class="">운영: <strong>SoftLayer VSI</strong>, <strong>Object Storage</strong></li>
+						<li class="">외주: <strong>Mailgun</strong>, <strong>Papertrail</strong>, <strong>Slack</strong></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="/section-4/page-3" class="ft-page" data-id="page-3">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>봅시다.</h1>
+					<h2>CAOS: 시연</h2>
+				</div>
+			</div>
+		</div>
+		<div id="/section-4/page-4" class="ft-page" data-id="page-4">
+			<p><strong>OTP Mail</strong><br>
+			<cite>Mailgun</cite></p>
+			<div class="stack-center">
+				<img class="stacked-center" src="cloud-album-on-object-storage/caos-otp.png">
+			</div>
+		</div>
+		<div id="/section-4/page-5" class="ft-page" data-id="page-5">
+			<p><strong>Event Alert</strong><br>
+			<cite>Papertrail and Slack</cite></p>
+			<div class="stack-center">
+				<img class="stacked-center" src="cloud-album-on-object-storage/caos-alert.png">
+			</div>
+		</div>
+		<div id="/section-4/page-6" class="ft-page" data-id="page-6">
+			<div class="stack-center" id="caos-effort">
+				<div class="stacked-center">
+					<h1>나의 노력</h1>
+					<ul class="stacked-center">
+						<li class="ft-fragment">VSI 만들기 - 클릭 <strong>열 몇 번</strong></li>
+						<li class="ft-fragment">실행환경 설정 - 명령 <strong>몇 번</strong></li>
+						<li class="ft-fragment">App 개발 - Controller 전체 <strong>517 줄</strong></li>
+						<li class="ft-fragment"><strong>+</strong> SoftLayer Object Storage API 수정</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="/section-4/page-7" class="ft-page" data-id="page-7">
+			<div class="stack-center">
+				<div class="stacked-center">
+					<h1>나머지는?</h1>
+					<h2 class="ft-fragment"><strong>구름아, 부탁해...</strong></h2>
+				</div>
+			</div>
+		</div>
+		<div id="/section-4/page-8" class="ft-page bg ca" data-id="page-8">
+		</div>
+	</div>
+
+	<div class="ft-section" data-id="section-5">
+		<div id="/section-5/page-1" class="ft-page bg sk8" data-id="page-1">
+			<h4 class="back">이제는 우리가 헤어져야 할 시간, <strong>다음에 또 만나요~</strong></h4>
+			<div class="stack-center">
+				<h2 class="ft-fragment stacked-center blackback"><strong>승부는, 곡선 구간에서 결정된다!</strong></h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+  <script src="js/brav1toolbox.js"></script>
+  <script src="js/flowtime.js"></script>
+  <script src="assets/js/prism.js"></script>
+
+  <script type="text/javascript">
+    var cacheTitle = document.title.replace("Flowtime.js | ", "");
+
+    // Configuration API test
+    Flowtime.showProgress(true);
+    // Flowtime.fragmentsOnSide(true);
+    // Flowtime.fragmentsOnBack(true);
+    // Flowtime.useHistory(false);
+    // Flowtime.slideInPx(true);
+    // Flowtime.sectionsSlideToTop(true);
+    // Flowtime.backFromPageToTop(true);
+    // Flowtime.gridNavigation(false);
+    // Flowtime.useOverviewVariant(true);
+    Flowtime.parallaxInPx(true);
+    Flowtime.clicker(true);
+    //
+    // event management
+    // Flowtime.addEventListener("flowtimenavigation", onNavigation, false);
+    Flowtime.onNavigation(onNavigation);
+    function onNavigation(e)
+    {
+      // console.log(cacheTitle + ' > ' + document.title.replace("Flowtime.js | ", ""));
+      cacheTitle = document.title.replace("Flowtime.js | ", "");
+      //console.log('section', e.section, 'sectionIndex', e.sectionIndex);
+      //console.log('page', e.page, 'pageIndex', e.);
+      //console.log('pastSectionIndex', e.pastSectionIndex, 'pastPageIndex', e.pastPageIndex);
+      //console.log('prevSection', e.prevSection);
+      //console.log('nextSection', e.nextSection);
+      //console.log('prevPage', e.prevPage);
+      //console.log('nextPage', e.nextPage);
+      //console.log('fragment', e.fragment, + 'fragmentIndex', e.fragmentIndex);
+      //console.log("isOverview", e.isOverview);
+      //console.log('progress:', e.progress, 'total:', e.total);
+      // var value = Math.round(e.progress * 100 / e.total);
+      // console.log('Completion: ' + value + '%');
+    }
+    // starts the application with configuration options
+    Flowtime.start();
+  </script>
+  <!--script type="text/javascript" src="http://slidemote.jit.su/slidemote.js#flowtime"></script-->
+</body>
+</html>
+<!-- vim: set nowrap: -->
